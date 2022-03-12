@@ -1,6 +1,8 @@
 debugMode = true;
 StdLength = 500;
-screens =  document.getElementsByClassName("StaticOuterBox");//['.OuterBoxOne', '.OuterBoxTwo', '.OuterBoxThree', '.OuterBoxFour'];
+elements =  document.getElementsByClassName("StaticOuterBox");//['.OuterBoxOne', '.OuterBoxTwo', '.OuterBoxThree', '.OuterBoxFour'];
+ test = jQuery.makeArray( elements );
+ screens = ['.OuterBoxOne', '.OuterBoxTwo', '.OuterBoxThree', '.OuterBoxFour'];
 
 $(function () {
 
@@ -14,13 +16,21 @@ $(function () {
   $(window).scroll(function() {
     crossFade(screens, StdLength)
     Fade('.murloc', 1200)
+    screens.forEach(ShowHide);
   });
 
   $(".murloc").click(function(){
     console.log("asdasd");
     $(".murlocHead").animate({top: '11%'}).animate({left: '60%'}, "slow").animate({top: '20%'}, function () { $(this).removeAttr('style'); });
   });
-  
+
+  function ShowHide(item){
+      if($(item).css("opacity") == 0){
+        $(item).hide();
+      }else{
+        $(item).show();
+      }
+  }
 
   function crossFade(elements, len) {
 
