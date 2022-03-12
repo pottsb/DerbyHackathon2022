@@ -24,6 +24,8 @@ $(function () {
     $(".murlocHead").animate({top: '11%'}).animate({left: '60%'}, "slow").animate({top: '20%'}, function () { $(this).removeAttr('style'); });
   });
 
+
+  //Don't ask - https://i.imgur.com/Lda77tU.jpg
   function ShowHide(item){
       if($(item).css("opacity") == 0){
         $(item).hide();
