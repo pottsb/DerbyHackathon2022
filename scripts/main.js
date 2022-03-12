@@ -69,7 +69,7 @@ $(function () {
 
   
       
-    if(false){console.log("Element1: " + element1 + " Element2: " + element2 + " Absolute position: " + PagePosition + " Opacity: " + position +" FadeBase: " + fadeBase + "Fade Start: " + fadeStart + "Fade End: " + fadeEnd)}
+    if(debugMode){console.log("Element1: " + element1 + " Element2: " + element2 + " Absolute position: " + PagePosition + " Opacity: " + position +" FadeBase: " + fadeBase + "Fade Start: " + fadeStart + "Fade End: " + fadeEnd)}
     
     //update opacity
     $(element1).css({ opacity: 1 - position });

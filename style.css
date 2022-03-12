@@ -1,14 +1,20 @@
 body{
     margin:0;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+    display: none;
+  }
+ 
 
 .mainContainer{
     position: relative;
     z-index: 1;
     height: 10000px;
     width: 100%;
-    background-color: blue;
 }
 
 .StaticOuterBox{
@@ -36,9 +42,6 @@ body{
     opacity: 0;
 }
 
-.InnerBoxOne{
-    background-color: red;
-}
 
 .OuterBoxOne{
     background-image: url("images/city.jpg");
@@ -54,9 +57,6 @@ body{
     background-size: cover; 
 }
 
-.InnerBoxTwo{
-    background-color: blue;
-}
 
 .murloc{
     display:none;
@@ -100,17 +100,9 @@ body{
     background-size: cover; 
 }
 
-.InnerBoxThree{
-    background-color: yellow;
-}
-
 .OuterBoxFour{
     background-image: url("images/hell.jpg");
     background-position: center;
     background-repeat: no-repeat; 
     background-size: cover; 
-}
-
-.InnerBoxFour{
-    background-color: red;
 }
