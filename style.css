@@ -13,7 +13,7 @@ body::-webkit-scrollbar {
 .mainContainer{
     position: relative;
     z-index: 1;
-    height: 10000px;
+    height: 100%;
     width: 100%;
 }
 
@@ -22,6 +22,9 @@ body::-webkit-scrollbar {
     z-index: 2;
     height:100%;
     width:100%;
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover; 
 }
 
 .staticInnerBox{
@@ -29,7 +32,6 @@ body::-webkit-scrollbar {
     height: 60%;
     width: 60%;
     max-width: 60%;
-
     margin: 0;
     position: absolute;
     top: 50%;
@@ -41,22 +43,6 @@ body::-webkit-scrollbar {
 .Hidden{
     opacity: 0;
 }
-
-
-.OuterBoxOne{
-    background-image: url("images/city.jpg");
-    background-position: center;
-    background-repeat: no-repeat; 
-    background-size: cover; 
-}
-
-.OuterBoxTwo{
-    background-image: url("images/forest.jpg");
-    background-position: center;
-    background-repeat: no-repeat; 
-    background-size: cover; 
-}
-
 
 .murloc{
     display:none;
@@ -93,16 +79,18 @@ body::-webkit-scrollbar {
     background-size: contain;
 }
 
+.OuterBoxOne{
+    background-image: url("images/city.jpg");
+}
+
+.OuterBoxTwo{
+    background-image: url("images/forest.jpg");
+}
+
 .OuterBoxThree{
     background-image: url("images/jungle.jpg");
-    background-position: center;
-    background-repeat: no-repeat; 
-    background-size: cover; 
 }
 
 .OuterBoxFour{
     background-image: url("images/hell.jpg");
-    background-position: center;
-    background-repeat: no-repeat; 
-    background-size: cover; 
 }
