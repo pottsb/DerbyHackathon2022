@@ -86,6 +86,7 @@ $(function () {
 
   }
 
+  //fades objects in and out at a set point
   function Fade(element, fadeStart){
 
     if (document.documentElement.scrollTop  > fadeStart) {
@@ -94,9 +95,6 @@ $(function () {
       $(element).fadeOut();
     }
   }
-
-
-
 
 
 });
