@@ -42,6 +42,7 @@ body::-webkit-scrollbar {
 
 .Hidden{
     opacity: 0;
+    display:none;
 }
 
 .murloc{

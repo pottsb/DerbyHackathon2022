@@ -13,9 +13,8 @@ $(function () {
 
   //functions called when scrolling happens
   $(window).scroll(function() {
-    crossFade(screenNames, StdLength)
+    CrossFade(screenNames, StdLength)
     Fade('.murloc', 1200)
-    storedScreens.forEach(ShowHide); //-- remove the need for this asap.
   });
 
   $(".murloc").click(function(){
@@ -34,16 +33,7 @@ $(function () {
     return elementArray;
   }
 
-  //https://i.imgur.com/Lda77tU.jpg
-  function ShowHide(item){
-      if(item.css("opacity") == 0){
-        item.hide();
-      }else{
-        item.show();
-      }
-  }
-
-  function crossFade(elements, len) {
+  function CrossFade(elements, len) {
 
     //stores the current page position
     pagePosition = document.documentElement.scrollTop;
@@ -65,7 +55,7 @@ $(function () {
     fadeEnd = fadeBase + StdLength;
 
 
-    //an attempt to make sure pages are fully visable or fully hidden --- REWRITE THIS!!!!!
+    //an attempt to make sure pages are fully visable or fully hidden --- REWRITE THIS?
     if (pagePosition < fadeStart) {
       opacity = 0;
     }else if(pagePosition > fadeEnd){
@@ -73,16 +63,22 @@ $(function () {
     }else{ 
       opacity = (pagePosition - fadeStart) / (fadeEnd - fadeStart)
     }
-    if(indexPos > 1){
+    if(indexPos >= 1){
       storedScreens[indexPos-1].css({ opacity: 0 });
     }
   
     if(debugMode){console.log("Element1: " + element1 + " Element2: " + element2 + " Absolute position: " + pagePosition + " Opacity: " + opacity +" FadeBase: " + fadeBase + "Fade Start: " + fadeStart + "Fade End: " + fadeEnd)}
     
     //update opacity while checking if screens are out of bounds (before first screen, after end screen).
-    if(indexPos > 1){element1.css({ opacity: 1 - opacity });}
+    element1.css({ opacity: 1 - opacity });
     if(indexPos + 1 < storedScreens.length){element2.css({ opacity: opacity });}
     
+    //Shows and hides invisible screens so clicks and text selection works. - https://i.imgur.com/Lda77tU.jpg
+    if(element2.css("opacity") == 0){
+      element2.hide();
+    }else{
+      element2.show();
+    }
 
   }
 
