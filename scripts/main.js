@@ -98,4 +98,54 @@ $(function () {
       $(element).fadeOut();
     }
   }
+
+
+
+  //https://www.w3schools.com/jquery/jquery_fade.asp
+  function InstantCrossFade(storedScreens, stdLength) {
+
+    //stores the current page position
+    pagePosition = document.documentElement.scrollTop;
+
+    //calculates the index of the first active screen
+    if(pagePosition < stdLength){
+      indexPos = 0;
+    }else{
+      indexPos = Math.floor(pagePosition / 1000)
+    }
+
+    //store references to the active screens
+    screen1 = storedScreens[indexPos];
+    screen2 = storedScreens[indexPos+1];
+
+    //sets the fade in and out points
+    fadeStart = (indexPos * stdLength * 2) + stdLength;
+    fadeEnd = fadeStart + stdLength;
+
+    //an attempt to make sure screens are fully visable or fully hidden --- REWRITE THIS?
+    if (pagePosition < fadeStart) {
+      opacity = 0;
+    }else if(pagePosition > fadeEnd){
+      opacity = 1;
+    }else{ 
+      opacity = (pagePosition - fadeStart) / (fadeEnd - fadeStart)
+    }
+    if(indexPos >= 1){
+      storedScreens[indexPos-1].css({ opacity: 0 });
+    }
+  
+    if(debugMode){console.log("screen1: " + screen1 + " screen2: " + screen2 + " Absolute position: " + pagePosition + " Opacity: " + opacity + "Fade Start: " + fadeStart + "Fade End: " + fadeEnd)}
+    
+    //update opacity.
+    screen1.css({ opacity: 1 - opacity });
+    UpdateDisplay(screen1);
+
+    //update opacity while checking if the last screen is out of bounds.
+    if(indexPos + 1 < storedScreens.length){
+      screen2.css({ opacity: opacity });
+      UpdateDisplay(screen2);
+    }
+  }
+
+
 });
